@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kharoshthi&display=swap" rel="stylesheet">
+
+   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #0d0d0d;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Header/NavBar */
+        header {
+            width: 100%;
+            padding: 20px 8%;
+            background-color: #0d0d0d;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+            nav h1 {
+                font-size: 24px;
+                font-weight: bold;
+                color: white;
+            }
+
+                nav h1 span {
+                    color: #d2691e;
+                }
+
+            nav ul {
+                list-style: none;
+                display: flex;
+                gap: 40px;
+            }
+
+                nav ul li a {
+                    text-decoration: none;
+                    color: white;
+                    font-weight: 400;
+                    font-size: 16px;
+                }
+
+                    nav ul li a:hover {
+                        color: #d2691e;
+                        transform: scale(1.05);
+                        font-size: 18px;
+                    }
+
+        /* Hamburger menu */
+        .hamburger {
+            display: none;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Sidebar menu */
+        .sidebar {
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            top: 80px;
+            right: 0;
+            width: 200px;
+            background-color: #0d0d0d;
+            padding: 20px;
+            z-index: 999;
+            transition: transform 0.3s ease;
+        }
+
+            .sidebar.active {
+                display: flex;
+            }
+
+            .sidebar ul {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+                .sidebar ul li a {
+                    text-decoration: none;
+                    color: white;
+                    font-weight: 400;
+                    font-size: 16px;
+                    transition: 0.3s;
+                }
+
+                    .sidebar ul li a:hover {
+                        color: #d2691e;
+                    }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('coffee.png') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            position: relative;
+            margin-top: 80px; /* Account for fixed navbar */
+            color: white;
+        }
+
+            .hero::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.6);
+            }
+
+        .hero-content {
+            position: relative;
+            max-width: 500px;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+            .hero h2 span {
+                color: #d2691e;
+            }
+
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: white;
+            color: black;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+            .btn:hover {
+                background: #d2691e;
+                color: white;
+            }
+
+        /* About Section */
+        .about {
+            text-align: center;
+            padding: 50px 8%;
+            background-color: white;
+            color: #333;
+            transform: translateY(50px);
+            transition: all 0.5s ease;
+            font-size: 2rem;
+        }
+
+            .about h2 {
+                font-size: 36px;
+                color: #4d2c15;
+                margin-bottom: 10px;
+            }
+
+            .about p {
+                font-size: 16px;
+                color: #555;
+                max-width: 800px;
+                margin: 0 auto 40px;
+            }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .about-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transform: scale(0.9) translateX(10px);
+            transition: all 0.3s ease-out;
+        }
+
+            .about-card img {
+                width: 50px;
+                margin-bottom: 15px;
+            }
+
+            .about-card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+                background-color: rgb(218, 168, 102);
+            }
+
+        /* Founder Section */
+        .founder-section {
+            background-color: #4f2b10;
+            color: white;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            border-radius: 20px;
+            max-width: 1300px;
+            margin: 50px auto;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .founder-text {
+            flex: 1 1 500px;
+            min-width: 280px;
+        }
+
+            .founder-text h2 {
+                font-size: 2.8rem;
+                color: #f7efef;
+                font-weight: 700;
+                margin-bottom: 20px;
+            }
+
+            .founder-text p {
+                font-size: 1.2rem;
+                line-height: 1.6;
+                margin-bottom: 12px;
+                color: #f3e9e9;
+            }
+
+            .founder-text a {
+                color: #fcd462;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                .founder-text a:hover {
+                    text-decoration: underline;
+                }
+
+        .founder-image {
+            flex: 1 1 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .founder-image img {
+                width: 100%;
+                max-width: 400px;
+                height: auto;
+                border-radius: 30px;
+                object-fit: cover;
+            }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+                color: #f5f5f5;
+                margin-right: 22px;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: 100%;
+                box-sizing: border-box;
+                background-color: #3f3c37;
+            }
+
+                .sidebar ul a {
+                    list-style: none;
+                    text-decoration: none;
+                    line-height: 80px;
+                    padding-left: 6%;
+                    box-sizing: border-box;
+                    letter-spacing: 1px;
+                    color: aliceblue;
+                    display: block;
+                    transition: .4s;
+                }
+
+                .sidebar ul {
+                    color: #c72424;
+                }
+
+            .founder-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .founder-text {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .founder-image img {
+                width: 200px;
+            }
+        }
+
+        /* Order Now Section */
+        .order-now {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+            .order-now h2 {
+                font-size: 32px;
+                color: #4f2b10;
+                margin-bottom: 10px;
+            }
+
+        .menu-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .menu-item {
+            position: relative;
+            width: 350px;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+            .menu-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+
+            .menu-item:hover img {
+                transform: scale(1.1); /* Enlarge the image on hover */
+            }
+
+            .menu-item .overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.6);
+                color: white;
+                padding: 15px;
+                opacity: 0; /* Initially hidden */
+                visibility: hidden; /* Hide overlay */
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+
+            .menu-item:hover .overlay {
+                opacity: 1; /* Show overlay */
+                visibility: visible;
+            }
+
+            .menu-item h3 {
+                font-size: 22px;
+                margin-bottom: 5px;
+            }
+
+            .menu-item p {
+                font-size: 14px;
+                line-height: 1.4;
+            }
+
+
+
+        @media (max-width: 768px) {
+            .menu-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: #f8f8f8;
+            padding: 40px 0;
+            color: #333;
+        }
+
+        .social-media {
+            background: #754222;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .icons a {
+            color: white;
+            font-size: 20px;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+            .icons a:hover {
+                color: #ffcc00;
+                transform: scale(1.05);
+                font-size: 25px;
+            }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            padding: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo img {
+            width: 300px;
+            margin-bottom: 10px;
+        }
+
+        .footer-logo p {
+            color: #754222;
+            max-width: 300px;
+        }
+
+        .footer-links,
+        .footer-info,
+        .footer-app {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+            .footer-links h3,
+            .footer-info h3,
+            .footer-app h3 {
+                font-size: 18px;
+                color: #754222;
+                margin-bottom: 10px;
+            }
+
+            .footer-links ul,
+            .footer-info ul {
+                list-style: none;
+                padding: 0;
+            }
+
+                .footer-links ul li a,
+                .footer-info ul li a {
+                    text-decoration: none;
+                    color: #754222;
+                    transition: 0.3s;
+                }
+
+                    .footer-links ul li a:hover,
+                    .footer-info ul li a:hover {
+                        color: #ff6600;
+                    }
+
+            .footer-app img {
+                width: 240px;
+                margin-top: 10px;
+            }
+
+
+        /* comment */
+        .comment-section {
+            width: 100%;
+            background: #ffffff;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(189, 171, 171, 0.1);
+        }
+
+            .comment-section h2 {
+                margin: 0 0 20px;
+                color: #333;
+                font-size: 1.5rem;
+                text-align: center;
+            }
+
+        .comment-form textarea {
+            width: 80%;
+            padding: 25px;
+            border: 1px solid #807a7a;
+            border-radius: 10px;
+            resize: none;
+            min-height: 100px;
+            font-size: 1rem;
+            background-color: #f9f9f9;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            position: center;
+            margin-left: 10%;
+        }
+
+        .comment-form button {
+            margin-top: 10px;
+            padding: 12px 25px;
+            border: none;
+            background-color: #ca8a4e;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            margin-left: 78%;
+        }
+
+            .comment-form button:hover {
+                background-color: #f5ca8a;
+            }
+
+        .comments-list {
+            margin-top: 20px;
+        }
+
+        .comment {
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid #e0492e;
+            border-radius: 10px;
+            background-color: #C2B280;
+            color: #fff;
+            ;
+            width: 80%;
+            margin-left: 10%;
+            transform: scale(.6);
+        }
+
+        .comment2 {
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid #e0492e;
+            border-radius: 10px;
+            background-color: #dadad6;
+            color: #3f3d3d;
+            ;
+            width: 80%;
+            margin-left: 10%;
+            transform: scale(1.2);
+        }
+
+        .comment:hover {
+            background-color: #f5f5f5;
+            color: #333;
+            transform: scale(1);
+        }
+
+        .comment .author {
+            font-weight: 800;
+            margin-bottom: 5px;
+            color: rgb(77, 68, 68);
+            font-family: cursive;
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 25px;
+        }
+
+        .comment .text {
+            line-height: 1.5;
+            font-family: "Noto Sans Kharoshthi", cursive;
+            font-size: 20px;
+            color: #555;
+        }
+    </style>
+
+    <header  >
+        <nav id="nav" >
+
+            <h1 data-aos="fade-left">Sip Krlo<span>.</span></h1>
+
+            <ul id="ul">
+                <li><a href="index.html" data-aos="fade-down">Home</a></li>
+                <li><a href="menu.html"data-aos="fade-down">Menu</a></li>
+                <li><a href="about.html" data-aos="fade-down">About Us</a></li>
+                <li><a href="contact.html" data-aos="fade-down">Contact us</a></li>
+                <li><a href="login.html" data-aos="fade-down">Login</a></li>
+            </ul>
+                 <!-- Hamburger Menu Icon -->
+        <div class="hamburger" id="hamburger" onclick="toggleSidebar()">
+            <i class="fas fa-bars"></i>
+        </div>
+        </nav>
+    </header>
+    <!-- Sidebar (visible only on small screens) -->
+<div class="sidebar" id="sidebar">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact us</a></li>
+        <li><a href="login.html">Login</a></li>
+    </ul>
+</div>
+
+    <section class="hero">
+        <div class="hero-content" data-aos="fade-right"
+        data-aos-offset="200"
+        data-aos-easing="ease-in-sine">
+            <h2>Start Your Day With A <br> <span>Fresh Coffee</span></h2>
+            <p>Coffee is a popular and beloved beverage enjoyed by people around the world.</p>
+            <a href="menu.html" class="btn" data-aos="zoom-in-right">Order Now</a>
+        </div>
+    </section>
+    <section class="about" >
+        <h2   data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300">About Coffee</h2>
+        <p  data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300" >
+            SIP KRLO (SP) was launched in MAY 2025, with a dream to become the biggest and the best coffee brand
+            of Pakistan!
+            From the beginning, there’s a clear focus on social responsibility which includes staff welfare, low-waste
+            practices,
+            supporting women’s empowerment and inclusivity.
+        </p>
+
+        <div class="about-container" >
+            <div class="about-card"   data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300">
+                <img  src="location-removebg-preview.png" alt="Location" 
+                 data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300">
+                <p>Pakistan’s largest coffee brand with 13 locations in 4 cities, in less than 7 years!</p>
+            </div>
+            <div class="about-card"  data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300">
+                <img src="pic_2-removebg-preview.png" alt="Workspace"  data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300">
+                <p>Dine-in locations also offer free workspace, free wifi, free drinking water!</p>
+            </div>
+            <div class="about-card "  data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300">
+                <img src="icon_2-removebg-preview.png" alt="Coffee"  data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300">
+                <p class="tooltip">Excellent coffees with freshly roasted beans from local roaster.</p>
+            </div>
+            <div class="about-card"  data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300">
+                <img src="icon_3-removebg-preview.png" alt="Discount"  data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300">
+                <p>Low prices with special discounts for students and senior citizens.</p>
+            </div>
+            <div class="about-card "  data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300">
+                <img src="icon-4-removebg-preview.png" alt="Women Support"
+                 data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300">
+                <p>We support women entrepreneurs, low-waste practices and inclusion.</p>
+            </div>
+            <div class="about-card"  data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300">
+            
+                <img src="Home-App-Icon-removebg-preview.png" alt="Loyalty"  data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300">
+                <p>We have a loyalty app, online store and barista academy too!</p>
+            </div>
+        </div>
+    </section>
+  
+    <section class="more"></section>
+    <div class="founder-section" data-aos="zoom-in" data-aos-delay="100">
+        <div class="founder-text">
+            <h2>Our Founder & Chief Happiness Officer</h2>
+            <p>Mush Panjwani has been a sales, marketing, and training expert for over 35 years.
+                He has worked with corporates, leaders, and entrepreneurs in 20 countries.
+                Mush is also the author of <em>Dhinchak Life</em>, a book about living a fantastic life!</p>
+            <p>Mush launched SIP KRLO on 21st MAY 2025 with a dream of making it the best
+                and the biggest coffee brand across Pakistan.</p>
+            <p>Mush is also a certified ‘happiness trainer’ and trains at corporates and non-profits.
+                More about Mush at <a href="https://www.MushPanjwani.com" target="_blank">www.MushPanjwani.com</a></p>
+        </div>
+        <div class="founder-image">
+            <img src="uncle pic.png" alt="Mush Panjwani">
+        </div>
+    </div>
+    </section>
+    <section class="order-now">
+        <h2 data-aos="fade-up">Order Now</h2>
+        <p style="color: black;" data-aos="fade-up">From a full range of hot/cold coffees, other beverages and snacks.</p>
+        <div class="menu-container" data-aos="flip-down">
+            <div class="menu-item" data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300" >
+                <img src="1 pic.jpg" alt="Cold Beverage" data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300" >
+                <div class="overlay">
+                    <h3>Cold Beverage</h3>
+                    <p>Chill with our signature brews served cold for your pleasure.</p>
+                </div>
+            </div> 
+            <div class="menu-item" data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300" >
+                <img src="images (1).jpg" alt="Savories" data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300" >
+                <div class="overlay" >
+                    <h3>Savories</h3>
+                    <p>Experience homemade delights from our local vendors.</p>
+                </div>
+            </div>
+            <div class="menu-item" data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300" >
+                <img src="pic 3.jpg" alt="Dessert" data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300" >
+                <div class="overlay">
+                    <h3>Dessert</h3>
+                    <p>Delightful treats to pair with your coffee cravings!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Comment section -->
+      <div class="comment-section">
+        <h2>Comments</h2>
+        <div class="comment-form">
+            <textarea id="comment-input" placeholder="Write a comment..."></textarea>
+            <button onclick="addComment()">Post Comment</button>
+        </div>
+        <div class="comments-list" id="comments-list">
+            <!-- Hardcoded Comments -->
+            <div class="comment">
+                <div class="author">John Doe</div>
+                <div class="text">The service is super sweet, and every cup feels like a warm hug. Definitely worth ordering from—you won't regret it!" ☕✨</div>
+            </div>
+            <div class="comment2">
+                <div class="author">— Caffeine & Kindness by Emily Rose ☕💛</div>
+                <div class="text">"This coffee shop is pure magic! The staff is always cheerful, and their Chocolate Croissant is simply heavenly—crispy, buttery, and melts in your mouth. You have to order from here!"</div>
+            </div>
+        </div>
+    </div>
+        <div class="comments-list" id="comments-list">
+            <!-- Comments will appear here -->
+        </div>
+    </div>
+    <!--  -->
+
+    <footer>
+        <div class="social-media" data-aos="zoom-in" data-aos-delay="100">
+            <h2 data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300" >Follow Us On</h2>
+            <div class="icons" data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300" >
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-content">
+            <div class="footer-logo" data-aos="fade-up" 
+
+  data-aos-duration="1000"
+  data-aos-offset="300" >
+                <img src="SP-Dark-Logo (1).JPG" alt="SIP KRLO Logo">
+                <p>SP was launched in May 2025, with a dream to become the biggest and the best coffee brand of
+                    Pakistan!</p>
+            </div>
+
+            <div class="footer-links" data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300" >
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Our Values</a></li>
+                    <li><a href="#">Our SOPs</a></li>
+                    <li><a href="#">Our Founder</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-info" data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300" >
+                <h3>Information</h3>
+                <ul  >
+                    <li><a href="#">Franchising</a></li>
+                    <li><a href="#">Locations</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">Jobs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-app" data-aos="fade-up" 
+  data-aos-delay="10" 
+  data-aos-duration="1000"
+  data-aos-offset="300" >
+                <h3>SP App</h3>
+                <a href="#"><img src="Google-Play.png" alt="Google Play"></a>
+                <a href="#"><img src="App-Store.png" alt="App Store"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init(); // Initialize AOS
+    </script>
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('active');
+    }
+</script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollToPlugin.min.js" integrity="sha512-kz526itdNcpyMs18TLPOhsnIeOIO1JywWKbbF77zR+ZKpZ4gwubXhwaURHpt5Se9AAqSK2j8ID0LnfXsB2Jkjg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="script.js"></script> -->
+
+ <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init(); // Initialize AOS
+    </script>
+    
+    <script>
+        function addComment() {
+            const commentInput = document.getElementById('comment-input');
+            const commentText = commentInput.value.trim();
+
+            if (commentText) {
+                const commentList = document.getElementById('comments-list');
+
+                const commentDiv = document.createElement('div');
+                commentDiv.classList.add('comment');
+
+                const authorDiv = document.createElement('div');
+                authorDiv.classList.add('author');
+                authorDiv.textContent = 'Anonymous';
+
+                const textDiv = document.createElement('div');
+                textDiv.textContent = commentText;
+
+                commentDiv.appendChild(authorDiv);
+                commentDiv.appendChild(textDiv);
+
+                commentList.appendChild(commentDiv);
+
+                commentInput.value = '';
+            } else {
+                alert('Please write a comment before posting!');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #0d0d0d;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Header/NavBar */
+        header {
+            width: 100%;
+            padding: 20px 8%;
+            background-color: #0d0d0d;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+            nav h1 {
+                font-size: 24px;
+                font-weight: bold;
+                color: white;
+            }
+
+                nav h1 span {
+                    color: #d2691e;
+                }
+
+            nav ul {
+                list-style: none;
+                display: flex;
+                gap: 40px;
+            }
+
+                nav ul li a {
+                    text-decoration: none;
+                    color: white;
+                    font-weight: 400;
+                    font-size: 16px;
+                    transition: 0.3s;
+                }
+
+                    nav ul li a:hover {
+                        color: #d2691e;
+                        transform: scale(1.05);
+                        font-size: 18px;
+                    }
+
+        /* Hamburger menu */
+        .hamburger {
+            display: none;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Sidebar menu */
+        .sidebar {
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            top: 80px;
+            right: 0;
+            width: 200px;
+            background-color: #0d0d0d;
+            padding: 20px;
+            z-index: 999;
+            transition: transform 0.3s ease;
+        }
+
+            .sidebar.active {
+                display: flex;
+            }
+
+            .sidebar ul {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+                .sidebar ul li a {
+                    text-decoration: none;
+                    color: white;
+                    font-weight: 400;
+                    font-size: 16px;
+                    transition: 0.3s;
+                }
+
+                    .sidebar ul li a:hover {
+                        color: #d2691e;
+                    }
+        /* footer */
+        /* Footer */
+        footer {
+            background: #f8f8f8;
+            padding: 40px 0;
+            color: #333;
+            position: relative;
+            width: 100%;
+        }
+
+        .social-media {
+            background: #754222;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .icons a {
+            color: white;
+            font-size: 20px;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+            .icons a:hover {
+                color: #ffcc00;
+                transform: scale(1.05);
+                font-size: 25px;
+            }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            padding: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo img {
+            width: 300px;
+            margin-bottom: 10px;
+        }
+
+        .footer-logo p {
+            color: #754222;
+            max-width: 300px;
+        }
+
+        .footer-links,
+        .footer-info,
+        .footer-app {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+            .footer-links h3,
+            .footer-info h3,
+            .footer-app h3 {
+                font-size: 18px;
+                color: #754222;
+                margin-bottom: 10px;
+            }
+
+            .footer-links ul,
+            .footer-info ul {
+                list-style: none;
+                padding: 0;
+            }
+
+                .footer-links ul li a,
+                .footer-info ul li a {
+                    text-decoration: none;
+                    color: #754222;
+                    transition: 0.3s;
+                }
+
+                    .footer-links ul li a:hover,
+                    .footer-info ul li a:hover {
+                        color: #ff6600;
+                    }
+
+            .footer-app img {
+                width: 240px;
+                margin-top: 10px;
+            }
+
+        /* responsice nav */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .founder-section {
+                flex-direction: column;
+                text-align: center;
+                display: flex;
+            }
+
+            .founder-text {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .founder-image img {
+                width: 200px;
+                display: flex;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: 100%;
+                box-sizing: border-box;
+                background-color: #44413c;
+            }
+
+                .sidebar ul {
+                    list-style: none;
+                    text-decoration: none;
+                    line-height: 80px;
+                    padding-left: 6%;
+                    box-sizing: border-box;
+                    letter-spacing: 1px;
+                    border-top: 1px solid rgba(161, 145, 145, 0.1);
+                    border-bottom: 1px solid rgb(131, 108, 108);
+                    color: aliceblue;
+                    display: block;
+                    font-weight: bold;
+                    transition: .4s;
+                }
+
+                .sidebar li {
+                    list-style: none;
+                    color: brown;
+                    font: bold;
+                }
+
+                .sidebar ul a:hover {
+                    padding-left: 10%;
+                    color: brown;
+                    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+                }
+
+                .sidebar ul a i {
+                    margin-right: 10px;
+                }
+
+            .footer {
+                margin-top: 14px;
+                position: absolute;
+            }
+        }
+
+
+        .founder-section {
+            background-color: #4f2b10;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 1000px;
+            margin: 50px auto;
+            flex-wrap: wrap;
+        }
+
+        .founder-text {
+            max-width: 60%;
+        }
+
+            .founder-text h2 {
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+
+            .founder-text p {
+                font-size: 16px;
+                line-height: 1.6;
+                margin-bottom: 10px;
+            }
+
+            .founder-text a {
+                color: #fcd462;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                .founder-text a:hover {
+                    text-decoration: underline;
+                }
+
+        .founder-image img {
+            width: 350px;
+            border-radius: 30px;
+        }
+
+
+
+
+        /* hero */
+
+        /* Reset and base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #0f0f0f;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 40px 20px;
+        }
+
+        /* Main section */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #202020;
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+
+        /* Section container */
+        .style-section {
+            background: linear-gradient(120deg, #2d1e1e 60%, #4e342e 100%);
+            padding: 60px 0 20px 0;
+        }
+
+            .style-section .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 40px;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 20px;
+            }
+
+        .text-content {
+            flex: 1 1 300px;
+        }
+
+            .text-content h2 {
+                font-size: 3rem;
+                color: #f7efef;
+                font-weight: 700;
+                margin-bottom: 20px;
+                margin-top: 0;
+                letter-spacing: 1px;
+            }
+
+                .text-content h2 span {
+                    color: #ffb300;
+                    font-size: 3.5rem;
+                    font-family: "Noto Sans Kharoshthi", cursive;
+                    display: inline-block;
+                    margin-top: 10px;
+                }
+
+            .text-content p {
+                font-size: 1.7rem;
+                color: #c7bfbf;
+                max-width: 500px;
+                margin-top: 10%;
+                line-height: 1.7;
+                font-family: "Onest", sans-serif;
+                font-weight: 400;
+            }
+
+        .image-wrapper {
+            position: relative;
+            flex: 1 1 500px;
+            min-width: 320px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image {
+            width: 340px;
+            height: 420px;
+            border-radius: 18px;
+            object-fit: cover;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(255, 179, 0, 0.08);
+            transition: transform 0.4s cubic-bezier(.4, 2, .6, 1), box-shadow 0.3s;
+            position: absolute;
+        }
+
+        .image-back {
+            top: 40px;
+            left: 290px;
+            z-index: 1;
+            filter: blur(0.1px) brightness(1) grayscale(0.2);
+            transform: rotate(-7deg) scale(0.96);
+            opacity: 0.85;
+        }
+
+        .image-front {
+            top: 0;
+            left: 0;
+            z-index: 2;
+            transform: rotate(3deg) scale(1.03);
+            box-shadow: 0 24px 60px rgba(218, 153, 3, 0.15), 0 8px 24px rgba(0, 0, 0, 0.18);
+        }
+
+            .image-front:hover,
+            .image-back:hover {
+                transform: scale(1.06) rotate(0deg);
+                box-shadow: 0 32px 80px rgba(235, 167, 11, 0.22), 0 12px 32px rgba(0, 0, 0, 0.22);
+                z-index: 3;
+            }
+
+        /* Tablet responsive */
+        @media (max-width: 900px) {
+            .style-section .container {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .text-content {
+                margin-top: 0;
+            }
+
+            .image-wrapper {
+                height: 120px;
+                min-width: 220px;
+            }
+
+            .image {
+                width: 220px;
+                height: 280px;
+            }
+
+            .image-back {
+                top: 20px;
+                left: 160px;
+            }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 600px) {
+            .text-content h2 {
+                font-size: 2rem;
+                margin-top: 0;
+            }
+
+                .text-content h2 span {
+                    font-size: 2.3rem;
+                }
+
+            .text-content p {
+                font-size: 1.1rem;
+                margin-top: 20px;
+            }
+
+            .image-wrapper {
+                height: auto;
+                min-height: 260px;
+                justify-content: center;
+                gap: 12px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                padding-bottom: 20px;
+                position: relative;
+            }
+
+            .image {
+                position: relative;
+                width: 160px;
+                height: 200px;
+                margin: 0 10px;
+            }
+
+            .image-back {
+                top: 0%;
+                left: 0;
+                transform: rotate(-5deg);
+            }
+
+            .image-front {
+                transform: rotate(5deg);
+            }
+        }
+
+
+
+        /* team */
+        .team-section {
+            background-color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+            .team-section h2 {
+                font-size: 2.5em;
+                color: #333;
+                margin-bottom: 20px;
+            }
+
+            .team-section p {
+                font-size: 1.1em;
+                color: #666;
+                margin-bottom: 40px;
+            }
+
+        /* Team Grid */
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .team-member {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 280px;
+            transition: transform 0.3s ease;
+        }
+
+            .team-member:hover {
+                transform: scale(1.05); /* Add a hover effect to scale up the card */
+            }
+
+            .team-member img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                margin-bottom: 15px;
+            }
+
+            .team-member h3 {
+                margin: 10px 0;
+                font-size: 1.2em;
+                color: #555;
+            }
+
+            .team-member p {
+                font-size: 0.9em;
+                color: #888;
+                margin-bottom: 10px;
+            }
+
+        .social-links a {
+            margin: 0 5px;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+            .social-links a:hover {
+                color: #333;
+            }
+
+        /* Responsive: Tablets and below */
+        @media (max-width: 900px) {
+            .team-grid {
+                gap: 20px;
+                justify-content: space-evenly;
+            }
+
+            .team-member {
+                width: 230px; /* Slightly smaller width on medium screens */
+            }
+
+                .team-member img {
+                    width: 90px;
+                    height: 90px; /* Resize images on smaller screens */
+                }
+
+            .team-section h2 {
+                font-size: 2rem;
+            }
+
+            .team-section p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Responsive: Mobile devices (600px and below) */
+        @media (max-width: 600px) {
+            .team-grid {
+                gap: 15px;
+                justify-content: center;
+            }
+
+            .team-member {
+                width: 100%; /* Full width for team cards on mobile */
+                max-width: 320px; /* Max width for each card */
+            }
+
+                .team-member img {
+                    width: 80px;
+                    height: 80px; /* Further reduce image size on mobile */
+                }
+
+            .team-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .team-section p {
+                font-size: 0.95rem;
+            }
+
+            .team-member h3 {
+                font-size: 1.1em;
+            }
+
+            .team-member p {
+                font-size: 0.85em;
+            }
+        }
+
+        /* ourstory */
+        .about-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+            .about-section h2 {
+                color: #d4af7f;
+                font-size: 2.5rem;
+            }
+
+            .about-section h3 {
+                color: #d4af7f;
+                font-size: 2rem;
+                margin-top: 20px;
+            }
+
+            .about-section p {
+                color: #ccc;
+                line-height: 1.6;
+                font-size: 1.4rem;
+                max-width: auto;
+                font-family: "Onest", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 400;
+                font-style: normal;
+            }
+
+        .mission-vision {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+
+            .mission-vision div {
+                flex: 1 1 400px;
+                margin: 20px;
+                padding: 20px;
+                background: #222;
+                border-radius: 10px;
+            }
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .mission-vision {
+                flex-direction: column;
+                align-items: center;
+            }
+
+                .mission-vision div {
+                    flex: 1 1 100%;
+                    width: 100%;
+                }
+
+            .about-section h2 {
+                font-size: 2rem;
+            }
+
+            .about-section h3 {
+                font-size: 1.5rem;
+            }
+
+            .about-section p {
+                font-size: 1rem;
+            }
+        }
+
+
+        /* mush */
+        .founder-section {
+            background-color: #4f2b10;
+            color: white;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            border-radius: 20px;
+            max-width: 1300px;
+            margin: 50px auto;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .founder-text {
+            flex: 1 1 500px;
+            min-width: 280px;
+        }
+
+            .founder-text h2 {
+                font-size: 2.8rem;
+                color: #f7efef;
+                font-weight: 700;
+                margin-bottom: 20px;
+            }
+
+            .founder-text p {
+                font-size: 1.2rem;
+                line-height: 1.6;
+                margin-bottom: 12px;
+                color: #f3e9e9;
+            }
+
+            .founder-text a {
+                color: #fcd462;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                .founder-text a:hover {
+                    text-decoration: underline;
+                }
+
+        .founder-image {
+            flex: 1 1 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .founder-image img {
+                width: 100%;
+                max-width: 400px;
+                height: auto;
+                border-radius: 30px;
+                object-fit: cover;
+            }
+
+        /* Responsive: Tablets and below */
+        @media (max-width: 900px) {
+            .founder-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 15px;
+            }
+
+            .founder-text h2 {
+                font-size: 2rem;
+            }
+
+            .founder-text p {
+                font-size: 1rem;
+            }
+
+            .founder-image img {
+                max-width: 90%;
+                margin-top: 20px;
+            }
+        }
+
+        /* Responsive: Mobile devices (600px and below) */
+        /* Responsive: Mobile devices (600px and below) */
+        @media (max-width: 600px) {
+            .founder-section {
+                flex-direction: column;
+                padding: 20px 10px;
+                width: 100%; /* Ensures the section takes up full width */
+                box-sizing: border-box; /* Prevents padding from affecting the width */
+            }
+
+            .founder-text {
+                padding: 0 30px; /* Adds some space to prevent text from touching the edges */
+            }
+
+                .founder-text h2 {
+                    font-size: 1.9rem;
+                    margin-left: -2rem;
+                }
+
+                .founder-text p {
+                    font-size: 1rem;
+                    margin-left: -2rem;
+                }
+
+            .founder-image img {
+                max-width: 100%;
+                margin-top: 10px;
+                margin-left: -2rem;
+            }
+        }
+
+
+
+        /* blog grid */
+
+        .blog-grid {
+            display: grid;
+            gap: 20px;
+            padding: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .blog-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            background-color: #c9b19d;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+            .blog-card:hover {
+                transform: scale(1.02);
+            }
+
+            .blog-card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                transition: transform 0.3s;
+            }
+
+            .blog-card:hover img {
+                transform: scale(1.05);
+            }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+            .blog-content span {
+                display: block;
+                font-size: 0.9em;
+                color: #241d1d;
+                margin-bottom: 5px;
+            }
+
+            .blog-content h2 {
+                font-size: 1.2em;
+                color: #333;
+                margin: 5px 0 10px;
+            }
+
+            .blog-content a {
+                color: #3f68e2;
+                text-decoration: none;
+                font-weight: bold;
+                transition: color 0.3s;
+            }
+
+                .blog-content a:hover {
+                    color: #161a1f;
+                }
+
+        /* Famous Dishes Section */
+        .blog-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+            .blog-section h2 {
+                font-size: 2.5rem;
+                color: #d1b36c;
+                margin-bottom: 20px;
+            }
+
+            .blog-section p {
+                font-size: 1.1rem;
+                color: #dacece;
+                line-height: 1.6;
+            }
+
+        /* Responsive: Tablets and below */
+        @media (max-width: 900px) {
+            .blog-grid {
+                padding: 20px;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .blog-content h2 {
+                font-size: 1.1em;
+            }
+
+            .blog-content span {
+                font-size: 0.85em;
+            }
+
+            .blog-card img {
+                height: 180px;
+            }
+        }
+
+        /* Responsive: Mobile devices (600px and below) */
+        @media (max-width: 600px) {
+            .blog-grid {
+                padding: 10px;
+                grid-template-columns: 1fr; /* Stacks the cards vertically on mobile */
+            }
+
+            .blog-section h2 {
+                font-size: 2rem;
+            }
+
+            .blog-section p {
+                font-size: 1rem;
+            }
+
+            .blog-card {
+                border-radius: 8px; /* Smaller rounded corners on mobile */
+            }
+
+            .blog-content h2 {
+                font-size: 1em;
+            }
+
+            .blog-content span {
+                font-size: 0.8em;
+            }
+
+            .blog-card img {
+                height: 150px; /* Smaller image height for mobile */
+            }
+        }
+
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="about.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kharoshthi&display=swap" rel="stylesheet">
+
+
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
+
+
+    <header  >
+        <nav >
+
+            <h1 data-aos="fade-left">SirKrlo<span>.</span></h1>
+
+            <ul>
+                <li><a href="index.html" data-aos="fade-down">Home</a></li>
+                <li><a href="menu.html"data-aos="fade-down">Menu</a></li>
+                <li><a href="about.html" data-aos="fade-down">About Us</a></li>
+                <li><a href="contact.html" data-aos="fade-down">Contact us</a></li>
+                <li><a href="login.html" data-aos="fade-down">Login</a></li>
+            </ul>
+                 <!-- Hamburger Menu Icon -->
+        <div class="hamburger" id="hamburger" onclick="toggleSidebar()">
+            <i class="fas fa-bars"></i>
+        </div>
+        </nav>
+    </header>
+    <!-- Sidebar (visible only on small screens) -->
+<div class="sidebar" id="sidebar">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact us</a></li>
+        <li><a href="login.html">Login</a></li>
+    </ul>
+</div>
+
+    
+
+
+
+<!-- < Main hero -->
+<section class="style-section">
+    <div class="container">
+      <div class="text-content">
+        <h2>Welcome to<br /><span>Sip Krlo Coffee</span></h2>
+        <p>At Sip Krlo Coffee, we believe that every sip should be an experience. From rich espressos to creamy lattes, we serve handcrafted beverages made with passion and the finest beans.</p>
+      </div>
+      <div class="image-wrapper">
+        <img src="image1.jpeg" alt="Style 1" class="image image-front" />
+        <img src="image2.jpeg" alt="Style 2" class="image image-back" />
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- our story -->
+  <div class="about-section">
+    <h2>Our Story</h2>
+    <p>Founded with the vision to bring excellence and innovation, our business has grown from a small idea into a vibrant enterprise. We are committed to delivering outstanding services and building lasting relationships with our customers. Our journey has been fueled by passion, dedication, and an unwavering pursuit of quality.</p>
+
+    <div class="mission-vision">
+        <div>
+            <h3>Our Mission</h3>
+            <p>To provide top-notch services and solutions that exceed customer expectations, while fostering a culture of integrity, innovation, and sustainability.</p>
+        </div>
+        <div>
+            <h3>Our Vision</h3>
+            <p>To become a leading brand recognized for excellence, customer satisfaction, and positive community impact, driving progress and innovation in our industry.</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+      <!--  mush  -->
+     
+      <div class="founder-section" data-aos="zoom-in" data-aos-delay="100">
+          <div class="founder-text">
+              <h2>Our Founder & Chief Happiness Officer</h2>
+              <p>Mush Panjwani has been a sales, marketing, and training expert for over 35 years.
+                  He has worked with corporates, leaders, and entrepreneurs in 20 countries.
+                  Mush is also the author of <em>Dhinchak Life</em>, a book about living a fantastic life!</p>
+              <p>Mush launched SIP KRLO on 21st MAY 2025 with a dream of making it the best
+                  and the biggest coffee brand across Pakistan.</p>
+              <p>Mush is also a certified ‘happiness trainer’ and trains at corporates and non-profits.
+                  More about Mush at <a href="https://www.MushPanjwani.com" target="_blank">www.MushPanjwani.com</a></p>
+          </div>
+          <div class="founder-image">
+              <img src="uncle pic.png" alt="Mush Panjwani">
+          </div>
+      </div>
+      </section>
+
+
+
+
+
+
+
+<!-- team -->
+<div class="team-section">
+    <h2>Meet Our Team</h2>
+   
+    <div class="team-grid">
+        <div class="team-member">
+            <img src="T.jpg" alt="Tunjeena Ahmed">
+            <h3>Tunjeena Ahmed</h3>
+            <p>Founder </p>
+            <div class="social-links">
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="T.jpg" alt="Seher Fatima">
+            <h3>Seher Fatima</h3>
+            <p>CEO</p>
+            <div class="social-links">
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+
+
+
+
+  
+     
+        <div class="team-member">
+            <img src="T.jpg" alt="Mahnoor Fatima">
+            <h3>Kate Berg</h3>
+            <p>CFO</p>
+            <div class="social-links">
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+      
+        </div>
+    </div>
+</div>
+
+
+<!-- famous dishes -->
+<body>
+    <div class="blog-section">
+        <h2>Famous Dishes</h2>
+        <p>Our recipes are crafted with fresh, high-quality ingredients to bring out rich, authentic flavors. Each dish is thoughtfully designed to pair perfectly with our signature coffees.</p>
+    </div>
+</body>
+
+
+<!-- bloggg -->
+<div class="blog-grid">
+    <div class="blog-card">
+        <img src="dish1.jpeg" alt="New trends in Tech">
+        <div class="blog-content">
+        
+            <h2>New trends in Tech</h2>
+            <span>Our cakes are made from scratch using the finest ingredients, ensuring a moist and flavorful treat in every slice.</span> <a href="#">Read more</a>
+            <a href="#">Read more</a>
+        </div>
+    </div>
+
+    <div class="blog-card">
+        <img src="ice.jpeg" alt="Working with legacy stacks">
+        <div class="blog-content">
+            <span>MAY 22, 2025</span>
+            <h2>Working with legacy stacks</h2>
+            <a href="#">Read more</a>
+        </div>
+    </div>
+
+    <div class="blog-card">
+        <img src="dish3.jpeg" alt="10 best smartphones for devs">
+        <div class="blog-content">
+            <span>MAY 25, 2025</span>
+            <h2>10 best smartphones for devs</h2>
+            <a href="#">Read more</a>
+        </div>
+    </div>
+
+    <div class="blog-card">
+        <img src="dish4.jpeg" alt="8 High performance Notebooks">
+        <div class="blog-content">
+            <span>MAY 27, 2025</span>
+            <h2>8 High performance Notebooks</h2>
+            <a href="#">Read more</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- footer -->
+<footer>
+    <div class="social-media" data-aos="zoom-in" data-aos-delay="100">
+        <h2>Follow Us On</h2>
+        <div class="icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </div>
+
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="SP-Dark-Logo (1).png" alt="SIP KRLO Logo">
+            <p>SP was launched in May 2025, with a dream to become the biggest and the best coffee brand of
+                Pakistan!</p>
+        </div>
+
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">Our Story</a></li>
+                <li><a href="#">Our Values</a></li>
+                <li><a href="#">Our SOPs</a></li>
+                <li><a href="#">Our Founder</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-info">
+            <h3>Information</h3>
+            <ul>
+                <li><a href="#">Franchising</a></li>
+                <li><a href="#">Locations</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Jobs</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-app">
+            <h3>SP App</h3>
+            <a href="#"><img src= " Google-Play.png" alt="Google Play"></a>
+            <a href="#"><img src="App-Store.png" alt="App Store"></a>
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+<!--  java for nav -->
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('active');
+    }
+</script>
+
+
+</body>
+</html>

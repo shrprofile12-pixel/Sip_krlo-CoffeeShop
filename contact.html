@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poetsen+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #0d0d0d;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Header/NavBar */
+        header {
+            width: 100%;
+            padding: 20px 8%;
+            background-color: #0d0d0d;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+            nav h1 {
+                font-size: 24px;
+                font-weight: bold;
+                color: white;
+            }
+
+                nav h1 span {
+                    color: #d2691e;
+                }
+
+            nav ul {
+                list-style: none;
+                display: flex;
+                gap: 40px;
+            }
+
+                nav ul li a {
+                    text-decoration: none;
+                    color: white;
+                    font-weight: 400;
+                    font-size: 16px;
+                    transition: 0.3s;
+                }
+
+                    nav ul li a:hover {
+                        color: #d2691e;
+                        transform: scale(1.05);
+                        font-size: 18px;
+                    }
+
+        /* Hamburger menu */
+        .hamburger {
+            display: none;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Sidebar menu */
+        .sidebar {
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            top: 80px;
+            right: 0;
+            width: 200px;
+            background-color: #0d0d0d;
+            padding: 20px;
+            z-index: 999;
+            transition: transform 0.3s ease;
+        }
+
+            .sidebar.active {
+                display: flex;
+            }
+
+            .sidebar ul {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+                .sidebar ul li a {
+                    text-decoration: none;
+                    color: rgb(37, 35, 35);
+                    font-weight: 400;
+                    font-size: 16px;
+                    transition: 0.3s;
+                }
+
+                    .sidebar ul li a:hover {
+                        color: #d2691e;
+                    }
+        /* footer */
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            padding: 40px 0;
+            color: #eceaea;
+            margin-top: 4%;
+        }
+
+        .social-media {
+            background: #754222;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .icons a {
+            color: white;
+            font-size: 20px;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+            .icons a:hover {
+                color: #ffcc00;
+                transform: scale(1.05);
+                font-size: 25px;
+            }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            padding: 30px;
+            flex-wrap: wrap;
+            background-color: #0d0d0d;
+        }
+
+        .footer-logo img {
+            width: 300px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .footer-logo p {
+            color: #eeebe9;
+            max-width: 300px;
+        }
+
+        .footer-links,
+        .footer-info,
+        .footer-app {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+            .footer-links h3,
+            .footer-info h3,
+            .footer-app h3 {
+                font-size: 18px;
+                color: #f8f7f6;
+                margin-bottom: 10px;
+            }
+
+            .footer-links ul,
+            .footer-info ul {
+                list-style: none;
+                padding: 0;
+            }
+
+                .footer-links ul li a,
+                .footer-info ul li a {
+                    text-decoration: none;
+                    color: #f3f0ee;
+                    transition: 0.3s;
+                }
+
+                    .footer-links ul li a:hover,
+                    .footer-info ul li a:hover {
+                        color: #e4e0de;
+                    }
+
+            .footer-app img {
+                width: 240px;
+                margin-top: 10px;
+            }
+
+        /* responsice nav */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .founder-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .founder-text {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .founder-image img {
+                width: 200px;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: 100%;
+                box-sizing: border-box;
+                background-color: #44413c;
+            }
+
+                .sidebar ul {
+                    list-style: none;
+                    text-decoration: none;
+                    line-height: 80px;
+                    padding-left: 6%;
+                    box-sizing: border-box;
+                    letter-spacing: 1px;
+                    border-top: 1px solid rgba(161, 145, 145, 0.1);
+                    border-bottom: 1px solid rgb(131, 108, 108);
+                    color: aliceblue;
+                    display: block;
+                    font-weight: bold;
+                    transition: .4s;
+                }
+
+                .sidebar li {
+                    list-style: none;
+                    color: brown;
+                    font: bold;
+                }
+
+                .sidebar ul a:hover {
+                    padding-left: 10%;
+                    color: brown;
+                    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+                }
+
+                .sidebar ul a i {
+                    margin-right: 10px;
+                }
+
+            .footer {
+                margin-top: 14px;
+                position: absolute;
+            }
+        }
+
+
+        /* contact  */
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: #d4af7f;
+        }
+
+        .hero {
+            background: url('/landing page 2/Landing_images/Black\ is\ everything\,\ Black\ is\ Dvrkline\ __#black\ #blacklove\ #preto\ #corpreta\ #blackisbeautiful\ #blackiseverything\ #dvrkline\ #aesthetic\ #colorblack\ #minimalista.jpeg') center/cover no-repeat;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .hero h1 {
+                border: 2px solid #fff;
+                padding: 20px 40px;
+                color: #fff;
+                border-radius: 10px;
+            }
+
+                .hero h1:hover {
+                    color: #bb7518;
+                    border-radius: 10px;
+                    transition: 0.3s;
+                }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+            .contact-info div {
+                max-width: 200px;
+            }
+
+        .contact-form {
+            text-align: center;
+            padding: 20px;
+        }
+
+            .contact-form form {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .contact-form input, .contact-form textarea {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                background: #222;
+                border: 1px solid #555;
+                color: #fff;
+            }
+
+            .contact-form button {
+                padding: 10px 30px;
+                background: #d4af7f;
+                border: none;
+                color: #000;
+                cursor: pointer;
+            }
+
+        .social-icons {
+            text-align: center;
+            margin: 20px;
+        }
+
+            .social-icons a {
+                margin: 0 10px;
+                color: #d4af7f;
+                text-decoration: none;
+            }
+
+        .map {
+            height: 500px;
+            width: 100%;
+            margin: 20px 0;
+            position: center;
+            display: flex;
+            margin-left: 240px;
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            overflow: hidden;
+        }
+
+        .footer {
+            background: #6f3c1a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+            .footer .links, .footer .info, .footer .apps {
+                margin: 20px 0;
+            }
+
+            .footer a {
+                color: white;
+                margin: 0 10px;
+                text-decoration: none;
+            }
+
+            .footer img {
+                height: 40px;
+                margin: 10px;
+            }
+
+
+        /*  */
+
+
+
+        .help-section {
+            padding: 40px 20px;
+            background-color: #141212;
+        }
+
+        .help-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .help-card {
+            display: flex;
+            flex-direction: column;
+            color: #cea166;
+            background-color: #5f2513;
+            overflow: hidden;
+            border-radius: 12px;
+            height: auto;
+        }
+
+            .help-card:hover {
+                transform: scale(1.05);
+                transition: 0.3s;
+            }
+
+        .help-image {
+            width: 100%;
+            height: 200px;
+            background-color: #8a8181;
+        }
+
+            .help-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        .help-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1;
+        }
+
+            .help-content h2 {
+                font-size: 32px;
+                margin-bottom: 16px;
+                color: #c3cad4;
+            }
+
+            .help-content p {
+                color: #d5dae0;
+                margin-bottom: 24px;
+                max-width: 500px;
+            }
+
+        .help-button {
+            display: inline-block;
+            padding: 12px 32px;
+            background-color: #fff;
+            color: #0e0f0f;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            width: fit-content;
+        }
+
+            .help-button:hover {
+                background-color: #b19562;
+            }
+
+        @media (min-width: 640px) {
+            .help-card {
+                flex-direction: row;
+                height: 320px;
+            }
+
+            .help-image {
+                width: 40%;
+                height: 100%;
+            }
+
+            .help-content {
+                width: 60%;
+                padding: 40px;
+            }
+        }
+    </style>
+
+
+    <header>
+        <nav>
+
+            <h1 data-aos="fade-left">SipKrlo<span>.</span></h1>
+
+            <ul>
+                <li><a href="index.html" data-aos="fade-down">Home</a></li>
+                <li><a href="menu.html" data-aos="fade-down">Menu</a></li>
+                <li><a href="about.html" data-aos="fade-down">About Us</a></li>
+                <li><a href="contact.html" data-aos="fade-down">Contact us</a></li>
+                <li><a href="login.html" data-aos="fade-down">Login</a></li>
+            </ul>
+            <!-- Hamburger Menu Icon -->
+            <div class="hamburger" id="hamburger" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+    <!-- Sidebar (visible only on small screens) -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+
+    <!-- contact -->
+
+    <div class="hero">
+        <h1>CONTACT US</h1>
+    </div>
+
+    <div class="contact-info">
+        <div>
+            <p>📞 Phone</p>
+            <p>+92 0000 000 000</p>
+            <p>+92 1111 111 111</p>
+        </div>
+        <div>
+            <p>📍 Address</p>
+            <p>123 Main Street, Clifton, Karachi - 75600, </p>
+            <p>Karachi, Pakistan</p>
+        </div>
+        <div>
+            <p>✉️ Email</p>
+            <p>support@gmail.com</p>
+        </div>
+    </div>
+
+    <section class="help-section">
+        <div class="help-container">
+            <div class="help-card">
+                <!-- Image -->
+                <div class="help-image">
+                    <img src="help.jpeg" alt="Help Center Image" />
+                </div>
+
+                <!-- Content -->
+                <div class="help-content">
+                    <h2>Help Center</h2>
+                    <p>This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text.</p>
+                    <a href="#" class="help-button">Contact Support</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="contact-form">
+        <h2>If you got any questions, please do not hesitate to send us a message.</h2>
+        <form>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <input type="text" placeholder="Subject">
+            <textarea rows="5" placeholder="Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+
+
+    <div class="map fullscreen-map">
+        <iframe src="map.jpg"></iframe>
+    </div>
+
+
+
+    <div class="social-icons">
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">Pinterest</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- footer -->
+    <footer>
+        <div class="social-media" data-aos="zoom-in" data-aos-delay="100">
+            <h2>Follow Us On</h2>
+            <div class="icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="SP-Dark-Logo (1).JPG " alt="SIP KRLO Logo">
+                <p>
+                    SP was launched in MAY 2025, with a dream to become the biggest and the best coffee brand of
+                    Pakistan!
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Our Values</a></li>
+                    <li><a href="#">Our SOPs</a></li>
+                    <li><a href="#">Our Founder</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-info">
+                <h3>Information</h3>
+                <ul>
+                    <li><a href="#">Franchising</a></li>
+                    <li><a href="#">Locations</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">Jobs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-app">
+                <h3>SP App</h3>
+                <a href="#"><img src="Google-Play.png" alt="Google Play"></a>
+                <a href="#"><img src="App-Store.png" alt="App Store"></a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+    </script>
+</body>
+</html>
+
