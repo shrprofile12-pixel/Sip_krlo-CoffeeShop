@@ -48,16 +48,14 @@
 
 
 
-        /* Navbar Styles */
-
-        /* ✅ Navbar Right */
+       
         nav {
             flex: 1;
             display: flex;
             justify-content: flex-end;
             background-color: #1d1b19;
             padding: 10px 20px;
-            /* Navbar ko right shift kiya */
+           
         }
 
         .logo {
@@ -115,16 +113,16 @@
         }
 
         .nav-link {
-            margin-right: 20px; /* Adjust spacing as needed */
+            margin-right: 20px; 
             text-decoration: none;
-            color: #000; /* Default text color */
-            transition: color 0.3s; /* Smooth transition for hover effect */
+            color: #000; 
+            transition: color 0.3s;
             font-size: 20px;
         }
 
             .nav-link:hover {
-                color: #eea722; /* Change to desired hover color */
-                padding: 3px 10px; /* Add padding for hover effect */
+                color: #eea722; 
+                padding: 3px 10px; 
             }
 
 
@@ -429,7 +427,7 @@
                     .sidebar ul li a:hover {
                         color: #d2691e;
                     }
-        /* Responsive Navbar */
+        
         @media (max-width: 768px) {
             nav ul {
                 display: none; /* Hide default nav items */
@@ -448,7 +446,7 @@
             }
 
             .sidebar {
-                top: 60px; /* Adjust to match nav height */
+                top: 60px; 
                 width: 100%;
             }
         }
@@ -469,7 +467,7 @@
             .hamburger {
                 display: block;
                 margin-top: 1%;
-                position: static; /* No absolute positioning */
+                position: static;
                 z-index: 1000;
                 right: 15px;
                 position: absolute;
@@ -524,7 +522,7 @@
 
         .container {
             width: 100%;
-            max-width: 1280px; /* Typical container max-width */
+            max-width: 1280px; 
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -533,7 +531,6 @@
         .gallery {
             display: flex;
             flex-wrap: wrap;
-            margin: -8px; /* -m-2 equivalent for md, -m-1 for smaller */
         }
 
         .gallery-half {
@@ -543,8 +540,7 @@
         }
 
         .gallery-item {
-            padding: 8px; /* p-2 equivalent for md, p-1 for smaller */
-        }
+            padding: 8px; 
 
             .gallery-item.half {
                 width: 80%;
@@ -552,7 +548,7 @@
 
             .gallery-item.full {
                 width: 140%;
-            }
+            }}
 
         .gallery-img {
             width: 100%;
@@ -564,18 +560,18 @@
 
         @media (min-width: 768px) {
             .title {
-                font-size: 1.875rem; /* sm:text-3xl */
+                font-size: 1.875rem;
             }
 
             .header-text {
-                width: 66.666667%; /* lg:w-2/3 */
+                width: 66.666667%; 
                 margin: 0 auto;
-                padding-left: 24px; /* lg:pl-6 */
+                padding-left: 24px; 
             }
 
             .header-title {
-                width: 33.333333%; /* lg:w-1/3 */
-                margin-bottom: 0; /* lg:mb-0 */
+                width: 33.333333%; 
+                margin-bottom: 0;
             }
         }
 
@@ -625,7 +621,6 @@
         .overlay {
             position: absolute;
             inset: 0;
-            /* background-color: #6366f1; indigo-500 */
             mix-blend-mode: multiply;
             z-index: 1;
         }
@@ -772,24 +767,22 @@
             <li><a href="login.html">Login</a></li>
         </ul>
     </div>
-    <!--  -->
-    <!--  -->
+   
     <nav class="navbar">
         <p>which thing u wanna buy</p>
-        <a href="coffe.html" class="nav-link">Coffes</a>
-        <a href="Ice.html" class="nav-link">Ice-creams</a>
-        <a href="Shakes.html" class="nav-link">Shakes</a>
-        <a href="Cakes.html" class="nav-link">Cakes</a>
+        <a href="/html/coffe.html" class="nav-link">Coffes</a>
+        <a href="/html/Ice.html" class="nav-link">Ice-creams</a>
+        <a href="/html/Shakes.html" class="nav-link">Shakes</a>
+        <a href="/html/Cakes.html" class="nav-link">Cakes</a>
     </nav>
-    <!--  -->
+ 
     <section class="hero-section">
-        <!-- image - start -->
-        <img src="coffee.jpeg" loading="lazy" alt="Photo by Fakurian Design" class="hero-image" />
-        <!-- image - end -->
-        <!-- overlay - start -->
+
+        <img src="/images/coffee.jpeg" loading="lazy" alt="Photo by Fakurian Design" class="hero-image" />
+    
         <div class="overlay"></div>
-        <!-- overlay - end -->
-        <!-- text - start -->
+   
+  
         <div class="hero-content">
             <p class="hero-subtitle">Sip Krlo Coffee Shop</p>
             <h1 class="hero-title">Menu</h1>
@@ -799,23 +792,23 @@
                 <a href="#" class="btn btn-secondary">Deals</a>
             </div>
         </div>
-        <!-- text - end -->
+   
     </section>
 
     <div class="menu-container">
         <h1>Sip Krlo Coffee Menu</h1>
         <div class="menu-grid">
-            <!-- Example Menu Card -->
+   
             <div class="menu-card">
-                <img src="salted-caramel-coffee.jpeg" alt="Salted Caramel Latte" />
+                <img src="/images/salted-caramel-coffee.jpeg" alt="Salted Caramel Latte" />
                 <div class="card-content">
                     <div class="coffee-name">Salted Caramel Latte</div>
                     <div class="coffee-price">Rs. 450</div>
                 </div>
             </div>
-            <!-- Add more menu items below -->
+
             <div class="menu-card">
-                <img src="strawbbeery (1).jpeg" alt="Hazelnut Latte" />
+                <img src="/images/strawbbeery (1).jpeg" alt="Hazelnut Latte" />
                 <div class="card-content">
                     <div class="coffee-name">Hazelnut Latte</div>
                     <div class="coffee-price">Rs. 450</div>
@@ -823,14 +816,14 @@
             </div>
 
             <div class="menu-card">
-                <img src="Espresso.jpeg" alt="Espresso Macchiato" />
+                <img src="/images/Espresso.jpeg" alt="Espresso Macchiato" />
                 <div class="card-content">
                     <div class="coffee-name">Espresso Macchiato</div>
                     <div class="coffee-price">Rs. 400</div>
                 </div>
             </div>
             <div class="menu-card">
-                <img src="ice.jpeg" alt="Vanilla Latte" />
+                <img src="/images/ice.jpeg" alt="Vanilla Latte" />
                 <div class="card-content">
                     <div class="coffee-name">Vanilla Latte</div>
                     <div class="coffee-price">Rs. 400</div>
@@ -838,21 +831,21 @@
             </div>
 
             <div class="menu-card">
-                <img src="Espresso.jpeg" alt="Espresso" />
+                <img src="/images/Espresso.jpeg" alt="Espresso" />
                 <div class="card-content">
                     <div class="coffee-name">Espresso</div>
                     <div class="coffee-price">Rs. 250</div>
                 </div>
             </div>
             <div class="menu-card">
-                <img src="Americano.jpeg" alt="Americano" />
+                <img src="/images/Americano.jpeg" alt="Americano" />
                 <div class="card-content">
                     <div class="coffee-name">Americano</div>
                     <div class="coffee-price">Rs. 300</div>
                 </div>
             </div>
             <div class="menu-card">
-                <img src="Cappuccino.jpeg" alt="Cappuccino" />
+                <img src="/images/Cappuccino.jpeg" alt="Cappuccino" />
                 <div class="card-content">
                     <div class="coffee-name">Cappuccino</div>
                     <div class="coffee-price">Rs. 350</div>
@@ -861,8 +854,7 @@
 
         </div>
     </div>
-    <!--  -->
-    <!-- Footer -->
+   
     <footer>
         <div class="social-media">
             <h2>Follow Us On</h2>
@@ -878,7 +870,7 @@
 
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="SP-Dark-Logo (1).JPG " alt="SIP KRLO Logo">
+                <img src="/images/SP-Dark-Logo (1).JPG " alt="SIP KRLO Logo">
                 <p>
                     SP was launched in MAY 2025, with a dream to become the biggest and the best coffee brand of
                     Pakistan!
@@ -907,8 +899,8 @@
 
             <div class="footer-app">
                 <h3>SP App</h3>
-                <a href="#"><img src="Google-Play.png" alt="Google Play"></a>
-                <a href="#"><img src="App-Store.png" alt="App Store"></a>
+                <a href="#"><img src="/images/Google-Play.png" alt="Google Play"></a>
+                <a href="#"><img src="/images/App-Store.png" alt="App Store"></a>
             </div>
         </div>
     </footer>

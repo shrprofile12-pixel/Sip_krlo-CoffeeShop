@@ -13,7 +13,7 @@
         @media (max-width: 600px) {
             .menu-card {
                 flex: 0 0 100%; /* 1 per row on mobile */
-            }
+            }}
 
     </style>
     <meta charset="UTF-8" />
@@ -50,7 +50,7 @@
 
         /* Navbar Styles */
 
-     /* ✅ Navbar Right */
+     /*  Navbar Right */
 nav {
     flex: 1;
     display: flex;
@@ -205,9 +205,10 @@ nav ul li a:hover {
 
         /* Menu Styles */
         .menu-container {
-            max-width: 1500px;
+       width: 100%;
             margin: auto;
-            padding: 40px 20px;
+           height: 1300px;
+            padding: 40px 10px;
             background-color: #DCD5CB;
             border-radius: 16px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.2);
@@ -234,6 +235,7 @@ nav ul li a:hover {
             overflow: hidden;
             flex: 0 0 calc(33.333% - 20px);
             display: flex;
+          
             flex-direction: column;
         }
         .menu-card:hover {
@@ -245,7 +247,7 @@ nav ul li a:hover {
 
             .menu-card img {
                 width: 100%;
-                height: 380px;
+                height: 480px;
                 object-fit: cover;
             }
 
@@ -266,18 +268,7 @@ nav ul li a:hover {
             font-weight: bold;
         }
 
-        /* Responsive media queries */
-        @media (max-width: 900px) {
-            .menu-card {
-                flex: 0 0 calc(50% - 20px);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .menu-card {
-                flex: 0 0 100%;
-            }
-        }
+      
 
         /* Footer Styles */
   
@@ -388,7 +379,19 @@ footer {
                 border-radius: 10px;
                 margin-right: 2rem;
             }
+  @media (max-width: 768px) {
+       .footer {
+          display: none;
+       }
 
+        .footer-content {
+          display: none;
+        }
+
+        .social-media {
+          display: none;
+        }
+    }
    /* Hamburger menu */
 .hamburger {
     display: none;
@@ -510,7 +513,8 @@ display: block;
 transition: .4s;
     }
     .menu-card {
-                flex: 0 0 calc(50% - 10px);
+                flex: 0 0 calc(70% - 30px);
+              
             }
             .menu-card:hover {
             transform: scale(1.05);
@@ -518,55 +522,18 @@ transition: .4s;
             box-shadow: 0 8px 30px rgba(0,0,0,0.2);
             background-color: rgb(231, 170, 89);
         }
+        
 
 .menu-container{
-    width: 300px;
+    width: 500px;
+    margin-left: -20%;
 }
+
      
 }
 
 /*  */
 
-        .container {
-            width: 100%;
-            max-width: 1280px; /* Typical container max-width */
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-     
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            margin: -8px; /* -m-2 equivalent for md, -m-1 for smaller */
-        }
-        
-        .gallery-half {
-            width: 50%;
-            display: flex;
-            flex-wrap: wrap;
-        }
-        
-        .gallery-item {
-            padding: 8px; /* p-2 equivalent for md, p-1 for smaller */
-        }
-        
-        .gallery-item.half {
-            width: 80%;
-        }
-        
-        .gallery-item.full {
-            width: 140%;
-        }
-        
-        .gallery-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
-        }
-        
         @media (min-width: 768px) {
             .title {
                 font-size: 1.875rem; /* sm:text-3xl */
@@ -727,7 +694,7 @@ transition: .4s;
 }
 
 .btn-secondary:hover {
-  background-color: #835521;
+  background-color: #a09a94;
 }
 
 .btn-secondary:active {
@@ -792,7 +759,7 @@ transition: .4s;
 <!--  -->
 <section class="hero-section">
     <!-- image - start -->
-    <img src="coffee.jpeg" loading="lazy" alt="Photo by Fakurian Design" class="hero-image" />
+    <img src="/images/icebkg.jpeg" loading="lazy" alt="Photo by Fakurian Design" class="hero-image" />
     <!-- image - end -->
 
     <!-- overlay - start -->
@@ -801,6 +768,7 @@ transition: .4s;
 
     <!-- text - start -->
     <div class="hero-content">
+
       <h1 class="hero-title">Menu</h1>
 
       <div class="hero-buttons">
@@ -812,66 +780,70 @@ transition: .4s;
   </section>
                                                                         
     <div class="menu-container">
-        <h1>Sip Krlo Coffee Menu</h1>
+        <h1>Sip Krlo Ice Cream Menu</h1>
         <div class="menu-grid">
             <!-- Example Menu Card -->
             <div class="menu-card">
-                <img src="salted-caramel-coffee.jpeg" alt="Salted Caramel Latte" />
+                <img src="/images/strawbbeery (12).jpg" alt="Salted Caramel Latte" />
                 <div class="card-content">
-                    <div class="coffee-name">Salted Caramel Latte</div>
+                    <div class="coffee-name">Straberry Bliss Delight</div>
                     <div class="coffee-price">Rs. 450</div>
                 </div>
             </div>
             <!-- Add more menu items below -->
             <div class="menu-card">
-                <img src="Hazelnut-Latte.jpeg" alt="Hazelnut Latte" />
+                <img src="/images/strawbbeery (21).jpg" alt="Hazelnut Latte" />
                 <div class="card-content">
-                    <div class="coffee-name">Hazelnut Latte</div>
+                    <div class="coffee-name">Decadent Chocolate Dream</div>
                     <div class="coffee-price">Rs. 450</div>
                 </div>
             </div>
-    
+
             <div class="menu-card">
-                <img src="Espresso.jpeg" alt="Espresso Macchiato" />
+                <img src="/images/ICE.jpeg" alt="Espresso Macchiato" />
                 <div class="card-content">
-                    <div class="coffee-name">Espresso Macchiato</div>
+                    <div class="coffee-name">Salted Caramel Pretzel Sundae</div>
                     <div class="coffee-price">Rs. 400</div>
                 </div>
             </div>
+
             <div class="menu-card">
-                <img src="Iced-Latte.jpeg" alt="Vanilla Latte" />
+                <img src="/images/WHITE.jpg" alt="Hazelnut Latte" />
                 <div class="card-content">
-                    <div class="coffee-name">Vanilla Latte</div>
+                    <div class="coffee-name">Dreamy Peach Bliss</div>
+                    <div class="coffee-price">Rs. 450</div>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="/images/MIX.jpg" alt="Espresso Macchiato" />
+                <div class="card-content">
+                    <div class="coffee-name">Chocolate Brownie</div>
                     <div class="coffee-price">Rs. 400</div>
                 </div>
             </div>
-        
+
             <div class="menu-card">
-                <img src="Espresso.jpeg" alt="Espresso" />
+                <img src="/images/PURPLE.jpg" alt="Hazelnut Latte" />
                 <div class="card-content">
-                    <div class="coffee-name">Espresso</div>
-                    <div class="coffee-price">Rs. 250</div>
+                    <div class="coffee-name">Berrry Blast</div>
+                    <div class="coffee-price">Rs. 450</div>
                 </div>
             </div>
-            <div class="menu-card">
-                <img src="Americano.jpeg" alt="Americano" />
-                <div class="card-content">
-                    <div class="coffee-name">Americano</div>
-                    <div class="coffee-price">Rs. 300</div>
-                </div>
-            </div>
-            <div class="menu-card">
-                <img src="Cappuccino.jpeg" alt="Cappuccino" />
-                <div class="card-content">
-                    <div class="coffee-name">Cappuccino</div>
-                    <div class="coffee-price">Rs. 350</div>
-                </div>
-            </div>
-           
+
+
+
+
+
+
+
         </div>
     </div>
     <!--  -->
- 
+    <!-- <section class="quote-section">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4" alt="Barista" />
+    
+    </section> -->
 
     <!-- Footer -->
     <footer>
@@ -889,7 +861,7 @@ transition: .4s;
 
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="SP-Dark-Logo (1).JPG " alt="SIP KRLO Logo">
+                <img src="/images/SP-Dark-Logo (1).JPG " alt="SIP KRLO Logo">
                 <p>
                     SP was launched in MAY 2025, with a dream to become the biggest and the best coffee brand of
                     Pakistan!
@@ -918,8 +890,8 @@ transition: .4s;
 
             <div class="footer-app">
                 <h3>SP App</h3>
-                <a href="#"><img src="Google-Play.png" alt="Google Play"></a>
-                <a href="#"><img src="App-Store.png" alt="App Store"></a>
+                <a href="#"><img src="/images/Google-Play.png" alt="Google Play"></a>
+                <a href="#"><img src="/images/App-Store.png" alt="App Store"></a>
             </div>
         </div>
     </footer>

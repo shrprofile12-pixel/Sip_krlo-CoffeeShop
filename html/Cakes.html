@@ -13,14 +13,15 @@
         @media (max-width: 600px) {
             .menu-card {
                 flex: 0 0 100%; /* 1 per row on mobile */
-            }
+            }}
+        
 
     </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href=".css">
 <!-- google fonts -->
  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poetsen+One&display=swap" rel="stylesheet">
 
@@ -50,7 +51,7 @@
 
         /* Navbar Styles */
 
-     /* ✅ Navbar Right */
+     /* Navbar Right */
 nav {
     flex: 1;
     display: flex;
@@ -58,7 +59,7 @@ nav {
     background-color: #1d1b19;
     padding: 10px 20px;
          
-    /* Navbar ko right shift kiya */
+
 }
 .logo{
   position: absolute;
@@ -84,7 +85,7 @@ nav {
 }
 nav ul li {
     margin: 0;
-    padding: 0;
+    padding: 0;   display: flex;
 }
 
 nav ul li a {
@@ -720,13 +721,13 @@ transition: .4s;
     <header>
         <nav>
 
-            <h1 class="logo">SipKrlo<span class="dot">.</span></h1>
+            <h1 class="logo">SipKrlo<span class="dot">.</span></nav>h1>
 
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="#">Contact us</a></li>
+                <li><a href="">Contact us</a></li>
                 <li><a href="login.html">Login</a></li>
             </ul>
         </nav>
@@ -751,7 +752,7 @@ transition: .4s;
 <!--  -->
 <nav class="navbar">
     <p >Which Thing You Wanna Buy...                 </p>
-    <a href="coffe.html" class="nav-link">Coffees     </a>
+    <a href="/html/coffe.html" class="nav-link">Coffees     </a>
     <a href="Ice.html" class="nav-link">Ice-creams    </a>
     <a href="Shakes.html"class="nav-link">Shakes    </a>
     <a href="Cakes.html"class="nav-link">Cakes    </a>
@@ -759,7 +760,7 @@ transition: .4s;
 <!--  -->
 <section class="hero-section">
     <!-- image - start -->
-    <img src="cakesss.jpeg" loading="lazy" alt="Photo by Fakurian Design" class="hero-image" />
+    <img src="/images/cakesss.jpeg" loading="lazy" alt="Photo by Fakurian Design" class="hero-image" />
     <!-- image - end -->
 
     <!-- overlay - start -->
@@ -784,7 +785,7 @@ transition: .4s;
         <div class="menu-grid">
             <!-- Example Menu Card -->
             <div class="menu-card">
-                <img src="dish3.jpeg" alt="Salted Caramel Latte" />
+                <img src="/images/dish3.jpeg" alt="Salted Caramel Latte" />
                 <div class="card-content">
                     <div class="coffee-name">Cocoa Heaven</div>
                     <div class="coffee-price">Rs. 450</div>
@@ -792,7 +793,7 @@ transition: .4s;
             </div>
             <!-- Add more menu items below -->
             <div class="menu-card">
-                <img src="dish1.jpeg" alt="Hazelnut Latte" />
+                <img src="/images/dish1.jpeg" alt="Hazelnut Latte" />
                 <div class="card-content">
                     <div class="coffee-name">Triple Chocolate Fudge</div>
                     <div class="coffee-price">Rs. 450</div>
@@ -800,7 +801,7 @@ transition: .4s;
             </div>
     
             <div class="menu-card">
-                <img src="cake1.jpeg" alt="Espresso Macchiato" />
+                <img src="/images/cake1.jpeg" alt="Espresso Macchiato" />
                 <div class="card-content">
                     <div class="coffee-name">Decade Divider</div>
                     <div class="coffee-price">Rs. 400</div>
@@ -808,21 +809,21 @@ transition: .4s;
             </div>
        
              <div class="menu-card">
-                <img src="cake2.jpeg" alt="Espresso Macchiato" />
+                <img src="/images/cake2.jpeg" alt="Espresso Macchiato" />
                 <div class="card-content">
                     <div class="coffee-name">Rose ButterCream</div>
                     <div class="coffee-price">Rs. 400</div>
                 </div>
             </div>
            <div class="menu-card">
-                <img src="cake3.jpeg" alt="Espresso Macchiato" />
+                <img src="/images/cake3.jpeg" alt="Espresso Macchiato" />
                 <div class="card-content">
                     <div class="coffee-name">Dark Feminine</div>
                     <div class="coffee-price">Rs. 400</div>
                 </div>
             </div>
            <div class="menu-card">
-                <img src="cake4.jpeg" alt="Espresso Macchiato" />
+                <img src="/images/cake4.jpeg" alt="Espresso Macchiato" />
                 <div class="card-content">
                     <div class="coffee-name">Nutella Ferrero Rocher</div>
                     <div class="coffee-price">Rs. 400</div>
@@ -835,11 +836,7 @@ transition: .4s;
            
         </div>
     </div>
-    <!--  -->
-    <!-- <section class="quote-section">
-        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4" alt="Barista" />
     
-    </section> -->
 
     <!-- Footer -->
     <footer>
@@ -857,7 +854,7 @@ transition: .4s;
 
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="SP-Dark-Logo (1).jpg " alt="SIO KRLO Logo">
+                <img src="/images/SP-Dark-Logo (1).jpg " alt="SIO KRLO Logo">
                 <p>SP was launched in MAY 2025, with a dream to become the biggest and the best coffee brand of
                     Pakistan!</p>
             </div>
@@ -884,8 +881,8 @@ transition: .4s;
 
             <div class="footer-app">
                 <h3>SP App</h3>
-                <a href="#"><img src="Google-Play.png" alt="Google Play"></a>
-                <a href="#"><img src="App-Store.png" alt="App Store"></a>
+                <a href="#"><img src="/images/Google-Play.png" alt="Google Play"></a>
+                <a href="#"><img src="/images/App-Store.png" alt="App Store"></a>
             </div>
         </div>
     </footer>

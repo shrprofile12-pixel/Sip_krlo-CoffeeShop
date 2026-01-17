@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sip Krlo Menu</title>
+
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poetsen+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<style>
+/* Global */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: url('aboutbackground.jpg') no-repeat center center/cover;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #1d1b19;
+    padding: 10px 20px;
+    position: relative;
+}
+.logo {
+    position: absolute;
+    left: 20px;
+    font-size: 35px;
+    color: #f8f8f8;
+}
+.dot {
+    color: #d2691e;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+nav ul li a:hover {
+    color: #d2691e;
+    transform: scale(1.05);
+}
+
+/* Hamburger Sidebar */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+}
+.sidebar {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    background-color: #0d0d0d;
+    padding: 10px;
+    z-index: 999;
+}
+.sidebar.active {
+    display: flex;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+.sidebar ul li a:hover {
+    color: #d2691e;
+}
+
+/* Menu Grid */
+.menu-container {
+    max-width: 1200px;
+    margin: 90px auto 40px;
+    padding: 20px;
+    background-color: #DCD5CB;
+    border-radius: 16px;
+}
+.menu-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.menu-card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    flex: 0 0 calc(33.333% - 20px);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.menu-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    background-color: rgb(231, 170, 89);
+}
+.menu-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+.card-content {
+    padding: 15px;
+}
+.coffee-name {
+    font-weight: bold;
+    color: #3e2723;
+}
+.coffee-price {
+    font-weight: bold;
+    color: #6d4c41;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 24rem;
+    background-color: #000;
+    overflow: hidden;
+}
+.hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 1;
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+}
+.hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .menu-card { flex: 0 0 calc(50% - 20px); }
+}
+@media (max-width: 600px) {
+    .menu-card { flex: 0 0 100%; }
+    .hamburger { display: block; }
+    nav ul { display: none; }
+    .sidebar { width: 100%; top: 60px; height: 100%; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <h1 class="logo">SipKrlo<span class="dot">.</span></h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
+    </nav>
+</header>
+
+<div class="sidebar" id="sidebar">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+    </ul>
+</div>
+
+<section class="hero-section">
+    <img src="/images/coffee.jpeg" class="hero-image" alt="Coffee" />
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <h1 class="hero-title">Menu</h1>
+    </div>
+</section>
+
+<div class="menu-container">
+    <h1>Sip Krlo Coffee Menu</h1>
+    <div class="menu-grid">
+        <div class="menu-card">
+            <img src="/images/salted-caramel-coffee.jpeg" alt="Salted Caramel Latte" />
+            <div class="card-content">
+                <div class="coffee-name">Salted Caramel Latte</div>
+                <div class="coffee-price">Rs. 450</div>
+            </div>
+        </div>
+        <div class="menu-card">
+            <img src="/images/Hazelnut-Latte.jpeg" alt="Hazelnut Latte" />
+            <div class="card-content">
+                <div class="coffee-name">Hazelnut Latte</div>
+                <div class="coffee-price">Rs. 450</div>
+            </div>
+        </div>
+        <div class="menu-card">
+            <img src="/images/Espresso.jpeg" alt="Espresso Macchiato" />
+            <div class="card-content">
+                <div class="coffee-name">Espresso Macchiato</div>
+                <div class="coffee-price">Rs. 400</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('active');
+}
+</script>
+</body>
+</html>
